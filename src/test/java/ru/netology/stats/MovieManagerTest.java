@@ -63,7 +63,23 @@ public class MovieManagerTest {
         manager.addNewMovie("Number one");
         manager.addNewMovie("Trap");
 
-        String[] expected = {"Bloodshot", "Forward", "Gentlemen", "Invisible Man", "Trolls", "Number one","Trap"};
+        String[] expected = {"Bloodshot", "Forward", "Gentlemen", "Invisible Man", "Trolls", "Number one", "Trap"};
+        String[] actual = manager.findAll();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void addLimitMovie() {
+        MovieManager manager = new MovieManager();
+
+        manager.addNewMovie("Bloodshot");
+        manager.addNewMovie("Forward");
+        manager.addNewMovie("Gentlemen");
+        manager.addNewMovie("Invisible Man");
+        manager.addNewMovie("Trolls");
+        //manager.addNewMovie("Number one");
+
+        String[] expected = {"Bloodshot", "Forward", "Gentlemen", "Invisible Man", "Trolls"};
         String[] actual = manager.findAll();
         Assertions.assertArrayEquals(expected, actual);
     }
